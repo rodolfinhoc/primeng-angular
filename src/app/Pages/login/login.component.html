@@ -1,0 +1,17 @@
+  <div class="login-container p-d-flex p-jc-center p-ai-center">
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="p-card padding">
+          <img src="../../../assets/images/logo_login.png" class="img-login p-mb-2 p-mt-4" />
+          <div class="p-fluid">
+              <div class="p-field p-mb-2">
+                  <input type="text" pInputText formControlName="usuario" name="usuario" placeholder="Usuário" />
+              </div>
+              <div class="p-field p-mb-2">
+                  <p-password formControlName="senha" name="senha" [toggleMask]="true" placeholder="Senha"></p-password>
+              </div>
+              <button type="submit" [disabled]="loginForm.invalid || isLoggingIn" class="login-button p-button p-mt-2" pButton>Login
+
+                <span *ngIf="isLoggingIn"><p-progressSpinner></p-progressSpinner></span>
+              </button>
+          </div>
+      </form>
+  </div>
