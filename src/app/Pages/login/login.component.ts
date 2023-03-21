@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
+import { AuthService } from './../../Services/authentication/auth-service.service';
 import { FormLoginInterface } from './Interface/login.interface';
 
 @Component({
@@ -13,17 +14,15 @@ export class LoginComponent {
 
   //variáveis
   isLoggingIn = false;
-  icon = '';
 
   constructor(
+    private auth: AuthService,
     fb: FormBuilder
     ) {
     this.loginForm = fb.group(new FormLoginInterface());
   }
 
-  login() {
-    this.isLoggingIn = true;
-    this.icon = 'pi pi-spin pi-spinner';
-    console.log(this.loginForm.value);
+  async tryLogin() {
+    this.auth.login(this.loginForm);
   }
 }
