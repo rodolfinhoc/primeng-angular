@@ -1,3 +1,4 @@
+import { StorageService } from './../../Services/storageService.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  visibleSidebar = false;
+
+  constructor(private service: StorageService) { }
+
+  async logout() {
+    this.service.logout();
+  };
 
 }

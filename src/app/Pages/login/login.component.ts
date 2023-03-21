@@ -16,13 +16,17 @@ export class LoginComponent {
   isLoggingIn = false;
 
   constructor(
-    private auth: AuthService,
+    private authService: AuthService,
     fb: FormBuilder
     ) {
     this.loginForm = fb.group(new FormLoginInterface());
   }
 
   async tryLogin() {
-    this.auth.login(this.loginForm);
-  }
+    this.authService.login(this.loginForm);
+  };
+
+  async loginGoogle(){
+
+  };
 }

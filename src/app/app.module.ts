@@ -11,7 +11,9 @@ import { PanelModule } from 'primeng/panel';
 import { PasswordModule } from 'primeng/password';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { SidebarModule } from 'primeng/sidebar';
 import { ToastModule } from 'primeng/toast';
+import { TooltipModule } from 'primeng/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,7 +36,9 @@ import { LoginComponent } from './Pages/login/login.component';
     ProgressSpinnerModule,
     ProgressBarModule,
     ToastModule,
-    ButtonModule
+    ButtonModule,
+    SidebarModule,
+    TooltipModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
