@@ -18,8 +18,9 @@ export class StorageService {
     this.storage = window.localStorage;
   };
 
-  async setUser(user: LoginInterface){
-    return this.storage.setItem(USER, JSON.stringify(user));
+  async setUser(user: any){
+    return this.storage.setItem(USER, user);
+    // return this.storage.setItem(USER, JSON.stringify(user));
   };
 
   async getUser(key: string) {

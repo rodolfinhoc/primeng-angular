@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="content">
+  <div class="p-grid">
+    <div class="p-col-12 p-md-6 p-lg-4" *ngFor="let arma of armas">
+      <p-card>
+        <img src="{{ arma.displayIcon }}" alt="{{ arma.displayName }}" />
+        <h2>{{ arma.displayName }}</h2>
+      </p-card>
+    </div>
+  </div>
+</div>

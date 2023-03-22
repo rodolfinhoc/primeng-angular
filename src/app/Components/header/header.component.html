@@ -1,0 +1,18 @@
+<header class="header">
+  <div class="header-left">
+    <button pButton pRipple type="button" icon="pi pi-bars"  (click)="visibleSidebar = true" class="p-button-rounded p-button-text header-menu-button"></button>
+  </div>
+  <div class="header-right">
+    <button pButton pRipple type="button" icon="pi pi-user" class="p-button-rounded p-button-text header-user-button"></button>
+    <button pButton pRipple type="button" pTooltip="Sair" (click)="logout()" tooltipPosition="bottom" icon="pi pi-power-off" class="p-button-rounded p-button-text header-logout-button"></button>
+  </div>
+</header>
+
+<p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
+  <h3>Valorant HUB</h3>
+  <ul class="list">
+    <li><a class="links" (click)="navigateHome()"><i class="pi pi-home icon"></i>Home</a></li>
+    <p-divider></p-divider>
+    <li><a class="links" (click)="navigatePageArmas()"><i class="pi pi-info-circle icon"></i>Armas</a></li>
+  </ul>
+</p-sidebar>

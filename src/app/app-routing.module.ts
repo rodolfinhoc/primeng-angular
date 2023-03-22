@@ -1,3 +1,4 @@
+import { ArmasComponent } from './Pages/armas/armas.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -6,6 +7,7 @@ import { LoginComponent } from './Pages/login/login.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'armas', component: ArmasComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

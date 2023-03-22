@@ -11,7 +11,7 @@ export class HttpService {
 
   async get(req: string, options?: any) {
     return await this.http
-      .get(`${API}/${req}`, options)
+      .get(`${API}/${req}?language=pt-BR`, options)
       .toPromise()
       .then((retorno: any) => retorno);
   }

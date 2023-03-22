@@ -18,23 +18,28 @@ export class AuthService {
     private service: StorageService,
     private controller: ControllService
     ) {
-      if (this.service.getUser('session').then((res) => res) !== undefined) {
-        this.isAuthenticated = true;
-      }
+      this.isAuthenticated = true;
+      // if (await this.service.getUser('session').then((res) => res) !== null) {
+      //     this.isAuthenticated = true;
+      // }
     }
 
   async login(loginForm: FormGroup) {
-    await this.http.post('login', loginForm.value).then(async (result: ResultLoginInterface) => {
-      if (result.success) {
-        this.controller.toastBottom('success','OK', result.message);
-        await this.service.setUser(result.data);
-        this.isAuthenticated = true;
-        this.controller.navigateHome();
-      }
-    }).catch(() => {
-      this.controller.toastBottom('error','ERRO', 'Usuário ou senha incorretos!');
-      this.isAuthenticated = false;
-    });
+    this.controller.toastBottom('success','OK', 'Login Efetuado com Sucesso!');
+    await this.service.setUser(loginForm);
+    this.isAuthenticated = true;
+    this.controller.navigateHome();
+    // await this.http.post('login', loginForm.value).then(async (result: ResultLoginInterface) => {
+    //   if (result.success) {
+    //     this.controller.toastBottom('success','OK', result.message);
+    //     await this.service.setUser(result.data);
+    //     this.isAuthenticated = true;
+    //     this.controller.navigateHome();
+    //   }
+    // }).catch(() => {
+    //   this.controller.toastBottom('error','ERRO', 'Usuário ou senha incorretos!');
+    //   this.isAuthenticated = false;
+    // });
   }
 
   async logout() {
