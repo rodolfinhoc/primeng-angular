@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AccordionModule } from 'primeng/accordion';
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { CarouselModule } from 'primeng/carousel';
 import { DividerModule } from 'primeng/divider';
 import { InputTextModule } from 'primeng/inputtext';
 import { PanelModule } from 'primeng/panel';
@@ -18,10 +20,10 @@ import { TooltipModule } from 'primeng/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './Components/header/header.component';
 import { ArmasComponent } from './Pages/armas/armas.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { LoginComponent } from './Pages/login/login.component';
-import { HeaderComponent } from './Components/header/header.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, LoginComponent, ArmasComponent, HeaderComponent],
@@ -42,7 +44,9 @@ import { HeaderComponent } from './Components/header/header.component';
     ButtonModule,
     SidebarModule,
     TooltipModule,
-    CardModule
+    AccordionModule,
+    CardModule,
+    CarouselModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
