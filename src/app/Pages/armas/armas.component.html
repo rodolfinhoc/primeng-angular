@@ -2,142 +2,158 @@
 <div class="content">
     <p-progressBar *ngIf="loading" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
     <div *ngIf="!loading">
-        <!-- ARMAS LEVES -->
-        <p-divider><a class="dividerText">Armas Leves</a></p-divider>
-        <p-carousel class="carousel" [value]="armasLeves" [numVisible]="3" [numScroll]="1"  [responsiveOptions]="responsiveOptions">
-            <ng-template let-arma pTemplate="item">
-                <p-card class="card">
-                    <ng-template pTemplate="header">
-                        <div class="img-card">
-                            <img alt="Card" src="{{arma.displayIcon}}" />
-                        </div>
+        <p-accordion>
+            <!-- ARMAS LEVES -->
+            <p-accordionTab header="Armas Leves" [selected]="true">
+                <p-carousel class="carousel" [value]="armasLeves" [numVisible]="3" [numScroll]="1" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+                    <ng-template let-arma pTemplate="item">
+                        <p-card class="card">
+                            <ng-template pTemplate="header">
+                                <div class="img-card">
+                                    <img alt="Card" src="{{arma.displayIcon}}" />
+                                </div>
+                            </ng-template>
+                            <ng-template pTemplate="title">
+                                <br />
+                                <div class="card-title">
+                                    {{arma.displayName}}
+                                    <br />
+                                <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button badge" label="Skins" (click)="openModalSkins(arma.uuid)"></button>
+                                </div>
+                            </ng-template>
+                            <!-- <button pButton>SKINS</button> -->
+                        </p-card>
                     </ng-template>
-                    <ng-template pTemplate="title">
-                        <br />
-                        <div class="card-title">{{arma.displayName}}
-                          <br/>
-                          <span class="badge">$ {{arma.shopData.cost}}</span>
-                        </div>
+                </p-carousel>
+            </p-accordionTab>
+            <!-- SMGs -->
+            <p-accordionTab header="SMGs">
+                <div class="grid">
+                    <p-card *ngFor="let arma of submetralhadoras" class="card sm:col-12 md:col-12 lg:col-6 xl:col-6">
+                        <ng-template pTemplate="header">
+                            <div class="img-card">
+                                <img alt="Card" src="{{arma.displayIcon}}" />
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="title">
+                            <br />
+                            <div class="card-title">
+                                {{arma.displayName}}
+                                <br />
+                                <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button badge" label="Skins" (click)="openModalSkins(arma.uuid)"></button>
+                            </div>
+                        </ng-template>
+                        <!-- <p> Conteúdo card </p> -->
+                    </p-card>
+                </div>
+            </p-accordionTab>
+            <!-- ESCOPETAS -->
+            <p-accordionTab header="Escopetas">
+                <div class="grid">
+                    <p-card *ngFor="let arma of escopetas" class="card sm:col-12 md:col-12 lg:col-6 xl:col-6">
+                        <ng-template pTemplate="header">
+                            <div class="img-card">
+                                <img alt="Card" src="{{arma.displayIcon}}" />
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="title">
+                            <br />
+                            <div class="card-title">
+                                {{arma.displayName}}
+                                <br />
+                                <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button badge" label="Skins" (click)="openModalSkins(arma.uuid)"></button>
+                            </div>
+                        </ng-template>
+                        <!-- <p> Conteúdo card </p> -->
+                    </p-card>
+                </div>
+            </p-accordionTab>
+            <!-- FUZIS DE ASSALTO -->
+            <p-accordionTab header="Fuzis de Assalto">
+                <p-carousel class="carousel" [value]="fuzisAssalto" [numVisible]="3" [numScroll]="1" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+                    <ng-template let-arma pTemplate="item">
+                        <p-card class="card">
+                            <ng-template pTemplate="header">
+                                <div class="img-card">
+                                    <img alt="Card" src="{{arma.displayIcon}}" />
+                                </div>
+                            </ng-template>
+                            <ng-template pTemplate="title">
+                                <br />
+                                <div class="card-title">
+                                    {{arma.displayName}}
+                                    <br />
+                                    <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button badge" label="Skins" (click)="openModalSkins(arma.uuid)"></button>
+                                </div>
+                            </ng-template>
+                            <!-- <button pButton>SKINS</button> -->
+                        </p-card>
                     </ng-template>
-                    <!-- <button pButton>SKINS</button> -->
-                </p-card>
-            </ng-template>
-        </p-carousel>
-        <!-- SMGS -->
-        <p-divider><a class="dividerText">SMGs</a></p-divider>
-        <div class="grid">
-            <p-card *ngFor="let arma of submetralhadoras" class="card sm:col-12 md:col-12 lg:col-6 xl:col-6">
-                <ng-template pTemplate="header">
-                    <div class="img-card">
-                        <img alt="Card" src="{{arma.displayIcon}}" />
-                    </div>
-                </ng-template>
-                <ng-template pTemplate="title">
-                  <br />
-                  <div class="card-title">{{arma.displayName}}
-                    <br/>
-                    <span class="badge">$ {{arma.shopData.cost}}</span>
-                  </div>
-              </ng-template>
-                <!-- <p> Conteúdo card </p> -->
-            </p-card>
-        </div>
-        <!-- ESCOPETAS -->
-        <p-divider><a class="dividerText">Escopetas</a></p-divider>
-        <div class="grid">
-            <p-card *ngFor="let arma of escopetas" class="card sm:col-12 md:col-12 lg:col-6 xl:col-6">
-                <ng-template pTemplate="header">
-                    <div class="img-card">
-                        <img alt="Card" src="{{arma.displayIcon}}" />
-                    </div>
-                </ng-template>
-                <ng-template pTemplate="title">
-                  <br />
-                  <div class="card-title">{{arma.displayName}}
-                    <br/>
-                    <span class="badge">$ {{arma.shopData.cost}}</span>
-                  </div>
-              </ng-template>
-                <!-- <p> Conteúdo card </p> -->
-            </p-card>
-        </div>
-        <!-- FUZIS DE ASSALTO -->
-        <p-divider><a class="dividerText">Fuzis de Assalto</a></p-divider>
-        <p-carousel class="carousel" [value]="fuzisAssalto" [numVisible]="3" [numScroll]="1" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
-            <ng-template let-arma pTemplate="item">
-                <p-card class="card">
-                    <ng-template pTemplate="header">
-                        <div class="img-card">
-                            <img alt="Card" src="{{arma.displayIcon}}" />
-                        </div>
-                    </ng-template>
-                    <ng-template pTemplate="title">
-                      <br />
-                      <div class="card-title">{{arma.displayName}}
-                        <br/>
-                        <span class="badge">$ {{arma.shopData.cost}}</span>
-                      </div>
-                  </ng-template>
-                    <!-- <button pButton>SKINS</button> -->
-                </p-card>
-            </ng-template>
-        </p-carousel>
-        <!-- FUZIS DE PRECISÃO -->
-        <p-divider><a class="dividerText">Fuzis de Precisão</a></p-divider>
-        <div class="grid">
-            <p-card *ngFor="let arma of fuzisPrecisao" class="card sm:col-12 md:col-12 lg:col-6 xl:col-6">
-                <ng-template pTemplate="header">
-                    <div class="img-card">
-                        <img alt="Card" src="{{arma.displayIcon}}" />
-                    </div>
-                </ng-template>
-                <ng-template pTemplate="title">
-                  <br />
-                  <div class="card-title">{{arma.displayName}}
-                    <br/>
-                    <span class="badge">$ {{arma.shopData.cost}}</span>
-                  </div>
-              </ng-template>
-                <!-- <p> Conteúdo card </p> -->
-            </p-card>
-        </div>
-        <!-- ARMAS PESADAS -->
-        <p-divider><a class="dividerText">Armas Pesadas</a></p-divider>
-        <div class="grid">
-            <p-card *ngFor="let arma of armasPesadas" class="card sm:col-12 md:col-12 lg:col-6 xl:col-6">
-                <ng-template pTemplate="header">
-                    <div class="img-card">
-                        <img alt="Card" src="{{arma.displayIcon}}" />
-                    </div>
-                </ng-template>
-                <ng-template pTemplate="title">
-                  <br />
-                  <div class="card-title">{{arma.displayName}}
-                    <br/>
-                    <span class="badge">$ {{arma.shopData.cost}}</span>
-                  </div>
-              </ng-template>
-                <!-- <p> Conteúdo card </p> -->
-            </p-card>
-        </div>
-        <!-- CONFRONTO -->
-        <p-divider><a class="dividerText">Confronto</a></p-divider>
-        <div class="grid">
-            <p-card *ngFor="let arma of confronto" class="card sm:col-12 md:col-12 lg:col-6 xl:col-6">
-                <ng-template pTemplate="header">
-                    <div class="img-card">
-                        <img alt="Card" src="{{arma.displayIcon}}" />
-                    </div>
-                </ng-template>
-                <ng-template pTemplate="title">
-                  <br />
-                  <div class="card-title">{{arma.displayName}}
-                    <br/>
-                    <span class="badge">FREE</span>
-                  </div>
-              </ng-template>
-                <!-- <p> Conteúdo card </p> -->
-            </p-card>
-        </div>
+                </p-carousel>
+            </p-accordionTab>
+            <!-- FUZIS DE PRECISÃO -->
+            <p-accordionTab header="Fuzis de Precisão">
+                <div class="grid">
+                    <p-card *ngFor="let arma of fuzisPrecisao" class="card sm:col-12 md:col-12 lg:col-6 xl:col-6">
+                        <ng-template pTemplate="header">
+                            <div class="img-card">
+                                <img alt="Card" src="{{arma.displayIcon}}" />
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="title">
+                            <br />
+                            <div class="card-title">
+                                {{arma.displayName}}
+                                <br />
+                                <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button badge" label="Skins" (click)="openModalSkins(arma.uuid)"></button>
+                            </div>
+                        </ng-template>
+                        <!-- <p> Conteúdo card </p> -->
+                    </p-card>
+                </div>
+            </p-accordionTab>
+            <!-- ARMAS PESADAS -->
+            <p-accordionTab header="Armas Pesadas">
+                <div class="grid">
+                    <p-card *ngFor="let arma of armasPesadas" class="card sm:col-12 md:col-12 lg:col-6 xl:col-6">
+                        <ng-template pTemplate="header">
+                            <div class="img-card">
+                                <img alt="Card" src="{{arma.displayIcon}}" />
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="title">
+                            <br />
+                            <div class="card-title">
+                                {{arma.displayName}}
+                                <br />
+                                <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button badge" label="Skins" (click)="openModalSkins(arma.uuid)"></button>
+                            </div>
+                        </ng-template>
+                        <!-- <p> Conteúdo card </p> -->
+                    </p-card>
+                </div>
+            </p-accordionTab>
+            <!-- CONFRONTO -->
+            <p-accordionTab header="Confronto">
+                <div class="grid">
+                    <p-card *ngFor="let arma of confronto" class="card sm:col-12 md:col-12 lg:col-6 xl:col-6">
+                        <ng-template pTemplate="header">
+                            <div class="img-card">
+                                <img alt="Card" src="{{arma.displayIcon}}" />
+                            </div>
+                        </ng-template>
+                        <ng-template pTemplate="title">
+                            <br />
+                            <div class="card-title">
+                                {{arma.displayName}}
+                                <br />
+                                <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button badge" label="Skins" (click)="openModalSkins(arma.uuid)"></button>
+                            </div>
+                        </ng-template>
+                        <!-- <p> Conteúdo card </p> -->
+                    </p-card>
+                </div>
+            </p-accordionTab>
+        </p-accordion>
     </div>
 </div>

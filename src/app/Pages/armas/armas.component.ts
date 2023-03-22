@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { ModalSkinsComponent } from 'src/app/Components/modals/modalSkins/modalskins.component';
 import { HttpService } from './../../Services/http.service';
 
 @Component({
   selector: 'app-armas',
   templateUrl: './armas.component.html',
-  styleUrls: ['./armas.component.scss']
+  styleUrls: ['./armas.component.scss'],
+  providers: [DialogService]
 })
 export class ArmasComponent {
   armasPesadas: any[] = [];
@@ -16,11 +18,12 @@ export class ArmasComponent {
   submetralhadoras: any[] = [];
   confronto: any[] = [];
   loading = true;
-
+  ref!: DynamicDialogRef;
   responsiveOptions;
 
   constructor(
-    private http: HttpService
+    private http: HttpService,
+    private dialogService: DialogService
     ) {
       this.responsiveOptions = [
         {
@@ -47,7 +50,7 @@ export class ArmasComponent {
   };
 
   async loadArmas(){
-    await this.http.get(`weapons`).then(response => {
+    await this.http.get(`weapons`).then((response: any) => {
       console.log(response.data);
       this.loading = false;
       this.armasPesadas = response.data.filter((arma: any) => arma.shopData?.categoryText === "Armas Pesadas");
@@ -59,4 +62,16 @@ export class ArmasComponent {
       this.confronto = response.data.filter((arma: any) => arma.shopData === null);
     });
   };
+
+  async openModalSkins(uuid: string) {
+    this.ref = this.dialogService.open(ModalSkinsComponent, {
+      data: {
+          uuid
+      },
+      header: 'Skins',
+      width: '70%',
+      height: '70%',
+      maximizable: true
+  });
+  }
 }

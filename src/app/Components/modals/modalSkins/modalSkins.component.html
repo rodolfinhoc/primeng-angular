@@ -1,0 +1,16 @@
+<!-- <div class="sm:col-12 md:col-12 lg:col-12 xl:col-12">
+  <p-listbox optionLabel="name" [filter]="true"></p-listbox>
+</div> -->
+
+
+<p-progressBar *ngIf="loading" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+<div *ngIf="!loading" class="sm:col-12 md:col-12 lg:col-12 xl:col-12">
+  <p-listbox [options]="skins" class="listbox">
+      <ng-template let-skins pTemplate="item">
+          <div class="flex align-items-center gap-2">
+<p-image src="{{skins.displayIcon}}" width="250" [preview]="true"></p-image>
+              <div class="skin-name">{{ skins.displayName }}</div>
+          </div>
+      </ng-template>
+  </p-listbox>
+</div>

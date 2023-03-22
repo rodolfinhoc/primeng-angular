@@ -38,11 +38,15 @@ img {
   text-align: center;
 }
 
-.badge {
+.badge-cost {
   background-color: rgb(85, 176, 85);
   color: white;
   padding: 2px 5px;
   border-radius: 5px;
   font-size: 16px;
   margin-left: 5px;
+}
+
+.badge {
+  padding: 2px 5px;
 }
