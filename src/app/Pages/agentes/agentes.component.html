@@ -1,0 +1,107 @@
+<app-header></app-header>
+<div class="content">
+  <p-progressBar *ngIf="loading" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+  <!-- INICIADORES -->
+  <p-divider align="left">
+    <div *ngIf="!loading" class="inline-flex align-items-center">
+      <img class="img-divider" src="../../../assets/icons/iniciador.png"/>
+      <b class="label-divider">Iniciadores</b>
+    </div>
+  </p-divider>
+  <div *ngIf="!loading" class="grid">
+    <p-card *ngFor="let iniciador of iniciadores" class="card sm:col-3 md:col-3 lg:col-3 xl:col-3">
+      <ng-template pTemplate="header">
+        <img src="{{iniciador.displayIcon}}" class="img-agent" pTooltip="Visualizar" (click)="showPreview(iniciador.fullPortrait)">
+        <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button habilidadesButton" label="Habilidades"></button>
+      </ng-template>
+      <ng-template pTemplate="title">
+        <div class="card-title">
+          {{iniciador.displayName}}
+        </div>
+      </ng-template>
+      <ng-template pTemplate="content">
+        <div class="card-content">
+          {{iniciador.description}}
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+  <!-- SENTINELAS -->
+  <p-divider align="left">
+    <div *ngIf="!loading" class="inline-flex align-items-center">
+      <img class="img-divider" src="../../../assets/icons/iniciador.png"/>
+      <b class="label-divider">Sentinelas</b>
+    </div>
+  </p-divider>
+  <div *ngIf="!loading" class="grid">
+    <p-card *ngFor="let sentinela of sentinelas" class="card sm:col-3 md:col-3 lg:col-3 xl:col-3">
+      <ng-template pTemplate="header">
+        <img src="{{sentinela.displayIcon}}" class="img-agent" pTooltip="Visualizar" (click)="showPreview(sentinela.fullPortrait)">
+        <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button habilidadesButton" label="Habilidades"></button>
+      </ng-template>
+      <ng-template pTemplate="title">
+        <div class="card-title">
+          {{sentinela.displayName}}
+        </div>
+      </ng-template>
+      <ng-template pTemplate="content">
+        <div class="card-content">
+          {{sentinela.description}}
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+  <!-- DUELISTAS -->
+  <p-divider align="left">
+    <div *ngIf="!loading" class="inline-flex align-items-center">
+      <img class="img-divider" src="../../../assets/icons/iniciador.png"/>
+      <b class="label-divider">Duelistas</b>
+    </div>
+  </p-divider>
+  <div *ngIf="!loading" class="grid">
+    <p-card *ngFor="let duelista of duelistas" class="card sm:col-3 md:col-3 lg:col-3 xl:col-3">
+      <ng-template pTemplate="header">
+        <img src="{{duelista.displayIcon}}" class="img-agent" pTooltip="Visualizar" (click)="showPreview(duelista.fullPortrait)">
+        <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button habilidadesButton" label="Habilidades"></button>
+      </ng-template>
+      <ng-template pTemplate="title">
+        <div class="card-title">
+          {{duelista.displayName}}
+        </div>
+      </ng-template>
+      <ng-template pTemplate="content">
+        <div class="card-content">
+          {{duelista.description}}
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+  <!-- CONTROLADORES -->
+  <p-divider align="left">
+    <div *ngIf="!loading" class="inline-flex align-items-center">
+      <img class="img-divider" src="../../../assets/icons/iniciador.png"/>
+      <b class="label-divider">Controladores</b>
+    </div>
+  </p-divider>
+  <div *ngIf="!loading" class="grid">
+    <p-card *ngFor="let controlador of controladores" class="card sm:col-3 md:col-3 lg:col-3 xl:col-3">
+      <ng-template pTemplate="header">
+        <img src="{{controlador.displayIcon}}" class="img-agent" pTooltip="Visualizar" (click)="showPreview(controlador.fullPortrait)">
+        <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button habilidadesButton" label="Habilidades"></button>
+      </ng-template>
+      <ng-template pTemplate="title">
+        <div class="card-title">
+          {{controlador.displayName}}
+        </div>
+      </ng-template>
+      <ng-template pTemplate="content">
+        <div class="card-content">
+          {{controlador.description}}
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+</div>
+<p-dialog header="Visualização da Imagem" [(visible)]="previewImage" [modal]="true" [style]="{width: '50vw'}">
+  <img [src]="previewImage" class="previewImage">
+</p-dialog>

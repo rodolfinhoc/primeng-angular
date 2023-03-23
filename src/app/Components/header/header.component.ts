@@ -24,6 +24,11 @@ export class HeaderComponent {
       this.visibleSidebar = false;
     };
 
+    async navigatePageAgentes() {
+      this.controller.navigate('/agentes');
+      this.visibleSidebar = false;
+    };
+
     async navigateHome(){
       this.visibleSidebar = false;
       this.controller.navigateHome();

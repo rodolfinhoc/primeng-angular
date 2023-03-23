@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { ModalSkinsComponent } from 'src/app/Components/modals/modalSkins/modalskins.component';
+import { ModalSkinsComponent } from 'src/app/Components/modals/modalSkins/modalSkins.component';
 import { HttpService } from './../../Services/http.service';
 
 @Component({

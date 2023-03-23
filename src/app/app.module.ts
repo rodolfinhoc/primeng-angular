@@ -24,13 +24,14 @@ import { TooltipModule } from 'primeng/tooltip';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
-import { ModalSkinsComponent } from './Components/modals/modalSkins/modalskins.component';
+import { ModalSkinsComponent } from './Components/modals/modalSkins/modalSkins.component';
 import { ArmasComponent } from './Pages/armas/armas.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { LoginComponent } from './Pages/login/login.component';
+import { AgentesComponent } from './Pages/agentes/agentes.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, ArmasComponent, HeaderComponent, ModalSkinsComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, ArmasComponent, HeaderComponent, ModalSkinsComponent, AgentesComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
