@@ -23,6 +23,7 @@ export class ModalSkinsComponent {
   async loadSkins() {
     await this.http.get(`weapons/${this.config.data.uuid}`).then((response: any) => {
       this.loading = false;
+      console.log(response.data.skins);
       this.skins = response.data.skins;
     });
   };
