@@ -1,0 +1,14 @@
+<app-header></app-header>
+<div class="content">
+  <p-divider class="label-divider"><i class="pi pi-map icon"></i><b>Mapas</b></p-divider>
+  <p-card class="card">
+  <p-galleria [value]="images" [showIndicators]="true" [showThumbnails]="false" [indicatorsPosition]="'top'" [responsiveOptions]="responsiveOptions" [containerStyle]="{ width: '50%' }">
+    <ng-template pTemplate="item" let-item>
+        <img [src]="item.splash" style="width: 100%; display: block;" />
+    </ng-template>
+    <ng-template pTemplate="caption" let-item>
+      <h4 style="margin-bottom: .5rem; color: #ffffff; font-size: 30px;">{{ item.displayName }}</h4>
+  </ng-template>
+</p-galleria>
+  </p-card>
+</div>

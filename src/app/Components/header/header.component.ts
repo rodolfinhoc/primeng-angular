@@ -29,8 +29,13 @@ export class HeaderComponent {
       this.visibleSidebar = false;
     };
 
-    async navigateHome(){
+    async navigatePageMapas() {
+      this.controller.navigate('/mapas');
       this.visibleSidebar = false;
+    };
+
+    async navigateHome(){
       this.controller.navigateHome();
-    }
+      this.visibleSidebar = false;
+    };
 }

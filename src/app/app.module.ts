@@ -20,7 +20,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { SidebarModule } from 'primeng/sidebar';
 import { ToastModule } from 'primeng/toast';
 import { TooltipModule } from 'primeng/tooltip';
-
+import { GalleriaModule } from 'primeng/galleria';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
@@ -29,9 +29,10 @@ import { ArmasComponent } from './Pages/armas/armas.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { AgentesComponent } from './Pages/agentes/agentes.component';
+import { MapasComponent } from './Pages/mapas/mapas.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, ArmasComponent, HeaderComponent, ModalSkinsComponent, AgentesComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, ArmasComponent, HeaderComponent, ModalSkinsComponent, AgentesComponent, MapasComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -54,7 +55,8 @@ import { AgentesComponent } from './Pages/agentes/agentes.component';
     CarouselModule,
     ImageModule,
     DialogModule,
-    ListboxModule
+    ListboxModule,
+    GalleriaModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
