@@ -11,7 +11,7 @@
   <div *ngIf="!loading" class="grid">
     <p-card *ngFor="let iniciador of iniciadores" class="card sm:col-3 md:col-3 lg:col-3 xl:col-3">
       <ng-template pTemplate="header">
-        <img src="{{iniciador.displayIcon}}" class="img-agent" pTooltip="Visualizar" (click)="showPreview(iniciador.fullPortrait)">
+        <img src="{{iniciador.displayIcon}}" class="img-agent" pTooltip="Visualizar" (click)="showPreview(iniciador.fullPortrait, iniciador.voiceLine.mediaList[0].wave)">
         <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button habilidadesButton" label="Habilidades"></button>
       </ng-template>
       <ng-template pTemplate="title">
@@ -29,14 +29,14 @@
   <!-- SENTINELAS -->
   <p-divider align="left">
     <div *ngIf="!loading" class="inline-flex align-items-center">
-      <img class="img-divider" src="../../../assets/icons/iniciador.png"/>
+      <img class="img-divider" src="../../../assets/icons/sentinela.png"/>
       <b class="label-divider">Sentinelas</b>
     </div>
   </p-divider>
   <div *ngIf="!loading" class="grid">
     <p-card *ngFor="let sentinela of sentinelas" class="card sm:col-3 md:col-3 lg:col-3 xl:col-3">
       <ng-template pTemplate="header">
-        <img src="{{sentinela.displayIcon}}" class="img-agent" pTooltip="Visualizar" (click)="showPreview(sentinela.fullPortrait)">
+        <img src="{{sentinela.displayIcon}}" class="img-agent" pTooltip="Visualizar" (click)="showPreview(sentinela.fullPortrait, sentinela.voiceLine.mediaList[0].wave)">
         <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button habilidadesButton" label="Habilidades"></button>
       </ng-template>
       <ng-template pTemplate="title">
@@ -54,14 +54,14 @@
   <!-- DUELISTAS -->
   <p-divider align="left">
     <div *ngIf="!loading" class="inline-flex align-items-center">
-      <img class="img-divider" src="../../../assets/icons/iniciador.png"/>
+      <img class="img-divider" src="../../../assets/icons/duelista.png"/>
       <b class="label-divider">Duelistas</b>
     </div>
   </p-divider>
   <div *ngIf="!loading" class="grid">
     <p-card *ngFor="let duelista of duelistas" class="card sm:col-3 md:col-3 lg:col-3 xl:col-3">
       <ng-template pTemplate="header">
-        <img src="{{duelista.displayIcon}}" class="img-agent" pTooltip="Visualizar" (click)="showPreview(duelista.fullPortrait)">
+        <img src="{{duelista.displayIcon}}" class="img-agent" pTooltip="Visualizar" (click)="showPreview(duelista.fullPortrait, duelista.voiceLine.mediaList[0].wave)">
         <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button habilidadesButton" label="Habilidades"></button>
       </ng-template>
       <ng-template pTemplate="title">
@@ -79,14 +79,14 @@
   <!-- CONTROLADORES -->
   <p-divider align="left">
     <div *ngIf="!loading" class="inline-flex align-items-center">
-      <img class="img-divider" src="../../../assets/icons/iniciador.png"/>
+      <img class="img-divider" src="../../../assets/icons/controlador.png"/>
       <b class="label-divider">Controladores</b>
     </div>
   </p-divider>
   <div *ngIf="!loading" class="grid">
     <p-card *ngFor="let controlador of controladores" class="card sm:col-3 md:col-3 lg:col-3 xl:col-3">
       <ng-template pTemplate="header">
-        <img src="{{controlador.displayIcon}}" class="img-agent" pTooltip="Visualizar" (click)="showPreview(controlador.fullPortrait)">
+        <img src="{{controlador.displayIcon}}" class="img-agent" pTooltip="Visualizar" (click)="showPreview(controlador.fullPortrait, controlador.voiceLine.mediaList[0].wave)">
         <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text header-user-button habilidadesButton" label="Habilidades"></button>
       </ng-template>
       <ng-template pTemplate="title">
@@ -105,3 +105,7 @@
 <p-dialog header="Visualização da Imagem" [(visible)]="previewImage" [modal]="true" [style]="{width: '50vw'}">
   <img [src]="previewImage" class="previewImage">
 </p-dialog>
+
+<audio id="audio-player">
+  <source src="{{playerAudio}}" type="audio/wav">
+</audio>

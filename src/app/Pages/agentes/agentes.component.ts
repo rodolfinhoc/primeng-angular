@@ -13,6 +13,7 @@ export class AgentesComponent {
   controladores: any[] = [];
   loading = true;
   previewImage!: string;
+  playerAudio!: string;
 
   constructor(
     private http: HttpService
@@ -33,7 +34,10 @@ export class AgentesComponent {
     });
   };
 
-  async showPreview(fullPortrait: string){
+  async showPreview(fullPortrait: string, audio: string){
+    this.playerAudio = audio;
     this.previewImage = fullPortrait;
+    const audioPlay = new Audio(audio);
+    audioPlay.play();
   };
 }

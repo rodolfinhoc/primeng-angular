@@ -8,7 +8,10 @@
         <p-divider layout="vertical"></p-divider>
         <div>
           <ul *ngFor="let chroma of skins.chromas.slice(1)">
-            <li>{{chroma.displayName}}</li>
+            <div class="grid">
+              <p-image src="{{chroma.fullRender}}" width="100" class="sm:col-6 md:col-6 lg:col-6 xl:col-6" [preview]="true"></p-image>
+              <li class="sm:col-6 md:col-6 lg:col-6 xl:col-6">{{chroma.displayName}}</li>
+            </div>
           </ul>
         </div>
       </div>
